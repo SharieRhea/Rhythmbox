@@ -8,17 +8,16 @@ import time
 
 """Writes the currently playing song to a file."""
 def writeSong():
-    # get the title and album from Rhythmbox and format it
+    # get the title and artist from Rhythmbox and format it
     output = subprocess.run(["rhythmbox-client", "--print-playing"], 
         capture_output=True)
-    title = output.stdout.decode("UTF-8").replace("b'", "").strip()
+    title = output.stdout.decode("UTF-8").strip()
     file = open("CurrentSong.txt", "w")
-    file.write("Music from Gamechops.com      ")
     file.write(title)
-    file.write("      ")
     file.close()
 
-"""Checks to see if Rhythmbox is open, if yes, return True, else, False."""
+"""Checks to see if Rhythmbox is open, if yes: return True, else: return
+False."""
 def checkRhythmbox():
     op = subprocess.run(["ps", "-e"], capture_output=True)
     running = op.stdout
