@@ -6,14 +6,18 @@ Sharie Rhea"""
 import subprocess
 import time
 
-"""Writes the currently playing song to a file."""
-def writeSong():
-    # get the title and artist from Rhythmbox and format it
+"""Returns the currently playing song."""
+def getSong():
     output = subprocess.run(["rhythmbox-client", "--print-playing"], 
         capture_output=True)
-    title = output.stdout.decode("UTF-8").strip()
+    return output.stdout.decode("UTF-8").strip()
+
+"""Writes the currently playing song to a file."""
+def writeSong():
     file = open("CurrentSong.txt", "w")
-    file.write(title)
+    file.write("Music from Gamechops.com      ")
+    file.write(getSong())
+    file.write("      ")
     file.close()
 
 """Checks to see if Rhythmbox is open, if yes: return True, else: return
@@ -26,10 +30,21 @@ def checkRhythmbox():
     else:
         return False
 
+running = checkRhythmbox()
+if running:
+    prevSong = getSong()
+    writeSong()
+else:
+    quit()
+
+# main loop
 while True:
-    flag = checkRhythmbox()
-    if flag:
-        writeSong()
+    running = checkRhythmbox()
+    if running:
+        currSong = getSong()
+        if prevSong != currSong:
+            prevSong = currSong
+            writeSong()
         time.sleep(1)
     else:
         quit()
