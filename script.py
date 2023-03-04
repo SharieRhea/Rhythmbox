@@ -20,7 +20,7 @@ def writeSong():
     file.write("      ")
     file.close()
 
-"""Checks to see if Rhythmbox is open, if yes: return True, else: return
+"""Checks to see if Rhythmbox is open, if true: return True, else: return
 False."""
 def checkRhythmbox():
     op = subprocess.run(["ps", "-e"], capture_output=True)
@@ -48,3 +48,4 @@ while True:
         time.sleep(1)
     else:
         quit()
+
