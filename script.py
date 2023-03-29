@@ -15,9 +15,7 @@ def getSong():
 """Writes the currently playing song to a file."""
 def writeSong():
     file = open("CurrentSong.txt", "w")
-    file.write("Music from Gamechops.com      ")
     file.write(getSong())
-    file.write("      ")
     file.close()
 
 """Checks to see if Rhythmbox is open, if true: return True, else: return
