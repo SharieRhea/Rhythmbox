@@ -21,22 +21,41 @@ write statements or the terminal command "--print-playing".
 Here are the formatting options for Rhythmbox from the Linux man page:
 
 >%at album title
+>
 >%aa album artist
+>
 >%aA album artist (lowercase)
+>
 >%as album artist sortname
+>
 >%aS album artist sortname (lowercase)
+>
 >%ay album year
+>
 >%ag album genre
+>
 >%aG album genre (lowercase)
+>
 >%an album disc number
+>
 >%aN album disc number, zero padded
+>
 >%st stream title
+>
 >%tn track number (i.e 8)
+>
 >%tN track number, zero padded (i.e 08)
+>
 >%tt track title
+>
 >%ta track artist
+>
 >%tA track artist (lowercase)
+>
 >%ts track artist sortname
+>
 >%tS track artist sortname (lowercase)
+>
 >%td track duration
+>
 >%te track elapsed time
